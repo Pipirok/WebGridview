@@ -18,46 +18,57 @@
             max-width: 450px;
         }
 
-        .main-cont {
+        .main-cont-wrapper {
             height: 100%;
             width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .main-cont {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
         }
     </style>
 </head>
 <body>
-    <div class="main-cont">
-        <form id="form1" runat="server" class="m-auto">
-            <div class="form form-cont">
-
-                <div class="field">
-                    <label class="label">Category Name</label>
-                    <div class="control">
-                        <asp:TextBox CssClass="input" ID="TextBoxCategoryName" runat="server"></asp:TextBox>
+    <div class="main-cont-wrapper">
+        <div class="main-cont">
+            <form id="form1" runat="server">
+                <div class="form form-cont">
+                    <div class="field">
+                        <label class="label">Category Name</label>
+                        <div class="control">
+                            <asp:TextBox CssClass="input" ID="TextBoxCategoryName" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Unit price</label>
+                        <div class="control">
+                            <asp:TextBox CssClass="input" ID="TextBoxUnitPrice" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Product Name</label>
+                        <div class="control">
+                            <asp:TextBox CssClass="input" ID="TextBoxProductName" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="field">
+                        <div class="control">
+                            <asp:Button OnClick="ButtonSubmit_Click" ID="ButtonSubmit" runat="server" Text="Submit" AutoPostBack="true" />
+                        </div>
                     </div>
                 </div>
-                <div class="field">
-                    <label class="label">Unit price</label>
-                    <div class="control">
-                        <asp:TextBox CssClass="input" ID="TextBoxUnitPrice" runat="server"></asp:TextBox>
-                    </div>
+                <div class="box">
+                    <asp:GridView CssClass="table" ID="GridView1" runat="server" OnPageIndexChanging="GridView1_PageIndexChanging" AllowPaging="True" PageSize="5"></asp:GridView>
+                    <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
                 </div>
-                <div class="field">
-                    <label class="label">Product Name</label>
-                    <div class="control">
-                        <asp:TextBox CssClass="input" ID="TextBoxProductName" runat="server"></asp:TextBox>
-                    </div>
-                </div>
-                <div class="field">
-                    <div class="control">
-                        <asp:Button OnClick="ButtonSubmit_Click" ID="ButtonSubmit" runat="server" Text="Submit" AutoPostBack="true" />
-                    </div>
-                </div>
-            </div>
-            <div class="box">
-                <asp:GridView CssClass="table" ID="GridView1" runat="server"></asp:GridView>
-                <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
-            </div>
-        </form>
+            </form>
+        </div>
     </div>
 </body>
 </html>

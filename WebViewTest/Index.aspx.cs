@@ -10,6 +10,7 @@ namespace WebViewTest
 {
     public partial class Index : System.Web.UI.Page
     {
+        private DataView dv = new DataView();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -37,7 +38,16 @@ namespace WebViewTest
                 return;
             }
             GridView1.DataSource = dataView;
+            dv = dataView;
             GridView1.DataBind();
+        }
+
+        
+
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            ButtonSubmit_Click(sender,e);
         }
     }
 }
